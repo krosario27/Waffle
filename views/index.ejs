@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<%- include('partials/header'); %> 
+<div id="main">
+  <div class="container-fluid">
+    <div class="row h-full">
+      <div id="sidebar" class="col-3">
+        <h2>Sidebar</h2>
+      </div>  
+      <main id="content" role="main" class="col-9">
+        <div class="header">
+          <h1>Main</h1>
+        </div>
+      </main>
+    </div> <!-- end .row --> 
+  </div><!-- end .container-fluid -->
+</div><!-- end #main -->
+<%- include('partials/footer'); %>

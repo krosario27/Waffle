@@ -1,8 +1,23 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body{
+  background: #FAD155;
+}
+#sidebar{
+  background: #F9A912;
+  height: 778px;
 }
 
-a {
-  color: #00B7FF;
+#main{
+  background-color: blue;
 }
+.header{
+  width: 100%;
+  background-color: #FFC107;
+}
+.header h1{
+  padding: 15px 30px;
+}
+#content{
+  background: beige;
+  padding: 0;
+}
+
