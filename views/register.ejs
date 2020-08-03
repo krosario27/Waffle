@@ -3,6 +3,10 @@
 <html>
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;900&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    <script src="register.js"></script>
+
 <div class="reg-div">
     <h1>Sign Up</h1>
     <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">First Name</p>
@@ -16,16 +20,13 @@
     <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Confirm Password</p>
     <input id="txtconfirmPass" type="password">
     
-    <button>Continue</button>
+    <button onclick="signUp()" id="signUp">Sign Up</button>
     <p><a href="index">Already have an account?</a></p>
 
 
 
 
 </div>
-
-
-
 
 </html>
 </body>
