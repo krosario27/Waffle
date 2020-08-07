@@ -9,19 +9,22 @@
 
 <div class="reg-div">
     <h1>Sign Up</h1>
-    <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">First Name</p>
-    <input id="txtFirst">
-    <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Last Name</p>
-    <input id="txtLast">
-    <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">E-mail</p>
-    <input id="txtE-mail" type="email">
-    <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Password</p>
-    <input id="txtPass" type="password">
-    <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Confirm Password</p>
-    <input id="txtconfirmPass" type="password">
-    
-    <button onclick="signUp()" id="signUp">Sign Up</button>
-    <p><a href="/">Already have an account?</a></p>
+    <form action="/register" method="post">
+        <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">First Name</p>
+        <input id="txtFirst">
+        <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Last Name</p>
+        <input id="txtLast">
+        <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">E-mail</p>
+        <input id="txtE-mail" type="email" name="email">
+        <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Password</p>
+        <input id="txtPass" type="password" name="password">
+        <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Confirm Password</p>
+        <input id="txtconfirmPass" type="password" name="passwordConfirm">
+        
+        <button a hreft="/" type="submit" id="signUp">Sign Up</button>
+        <p><a href="/">Already have an account?</a></p>
+    </form>
+
 
 
 

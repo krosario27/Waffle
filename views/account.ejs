@@ -1,0 +1,17 @@
+<%- include('partials/styleOnlyHeader'); %> 
+<div class="reg-div">
+    <h1>Update</h1>
+    <form action="/update" method="post">
+        <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">First Name</p>
+        <input id="txtFirst" name="firstName" type="text">
+        <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Last Name</p>
+        <input id="txtLast" name="lastName" type="text">
+        <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">E-mail</p>
+        <input id="txtE-mail" type="email" name="email">
+        
+        <button type="submit">Update</button>
+    </form>
+
+</div>
+
+<%- include('partials/footer'); %>

@@ -20,8 +20,8 @@ class UserController{
         this.setVariables();
 
         // Add all routing middleware for user endpoints
-        AraDTApp.post('/register', this.register);
         AraDTApp.get('/register', this.getRegister);
+        AraDTApp.post('/register', this.register);
         AraDTApp.post('/login', this.login);
         AraDTApp.get('/logout', this.logout);
         AraDTApp.get('/account', this.getAccount);
@@ -97,8 +97,10 @@ class UserController{
      * @returns {Object}    response.redirect object
      */
     register = async (request, response) => {
+        
         // Try to see if form submission is valid
         try{
+            
             await AraDTUserModel.register(request, response)
                 .then(() => {
                     // registration successful, so redirect to account
@@ -127,7 +129,7 @@ class UserController{
     /* YOU NEED TO ADD COMMENTS FROM HERE ON */
 
     updateAccount =  async (request, response) => {
-
+            // Try to see if form submission is valid
         var currentUser = AraDTUserModel.getCurrentUser();
         if (currentUser) {
             try{
@@ -135,11 +137,14 @@ class UserController{
                     .then(() => {
                         response.locals.errors.profile = ['Your details have been updated'];
                         response.render('account');
+                        //Update account successful, so redirect to account
                     }).catch((error) => {
                         response.locals.errors.profile = [error.message];
                         response.render('account');
+                        //Firebase update account has failed, so return Firebase errors
                     });
             } catch(errors) {
+                // Form has failed validation, so return errors
                 response.locals.errors.profile = errors;
                 response.render('account');
             }
@@ -150,6 +155,7 @@ class UserController{
     };
     
     updatePassword = async (request, response) => {
+        // Try to see if form submission is valid
 
         var currentUser = AraDTUserModel.getCurrentUser();
         if (currentUser) {
@@ -158,11 +164,14 @@ class UserController{
                     .then(() => {
                         response.locals.errors.password = ['Your password has been updated'];
                         response.render('account');
+                        //Update password successful, so redirect to account
                     }).catch((error) => {
                         response.locals.errors.password = [error.message];
                         response.render('account');
+                        //Firebase update password has failed, so return Firebase errors
                     });
             } catch(errors) {
+                // Form has failed validation, so return errors
                 response.locals.errors.password = errors;
                 response.render('account');
             }

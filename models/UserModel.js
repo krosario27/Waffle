@@ -80,6 +80,7 @@ class UserModel{
             email: request.body.email,
             password: request.body.password
         }
+        console.log(request.body);
         // Check is email is valid and password is over 6 chars
         var { valid, errors } = AraDTValidator.loginValid(user);
     
@@ -91,6 +92,7 @@ class UserModel{
             await AraDTDatabase.firebase.auth()
                 .signInWithEmailAndPassword(user.email, user.password)
                 .then((data) => {
+                    console.log(data);
                     // Promise to return token for the next stage
                     return data.user.getIdToken();
                 })

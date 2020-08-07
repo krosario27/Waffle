@@ -1,13 +1,15 @@
 <%- include('partials/styleOnlyHeader'); %> 
 <div class="main-div">
     <h1>Waffle</h1>
+    <form action="/login" method="post">
     <p1 id="main-email">EMAIL</p1>
-    <input id="txtEmail" type="email">
+    <input type="email" id="txtEmail" name="email">
     <p2>PASSWORD</p2>
-    <input id="txtPassword"type="password">
+    <input id="txtPassword" type="password" name="password">
   
-    <button>Log in</button>
+    <button type="submit">Log in</button>
     <p><a href="register">Need an account?</a></p>
+</form>
   
 
 </div>
