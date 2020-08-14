@@ -1,11 +1,10 @@
 <%- include('partials/styleOnlyHeader'); %> 
-<body id="register">
-<html>
-<head>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;900&display=swap" rel="stylesheet">
-    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
-    <script src="register.js"></script>
+
+<% if (locals.errors && locals.errors.register) { %>
+	<% locals.errors.register.forEach(function(error) { %>
+		<p class="alert alert-primary" role="alert"><%= error %></p>
+	<% }) %>
+<% } %>
 
 <div class="reg-div">
     <h1>Sign Up</h1>
@@ -21,18 +20,10 @@
         <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Confirm Password</p>
         <input id="txtconfirmPass" type="password" name="passwordConfirm">
         
-        <button a hreft="/" type="submit" id="signUp">Sign Up</button>
+        <button type="submit" id="signUp">Sign Up</button>
         <p><a href="/">Already have an account?</a></p>
     </form>
 
-
-
-
-
 </div>
-
-</html>
-</body>
-</head>
 
 <%- include('partials/footer'); %>

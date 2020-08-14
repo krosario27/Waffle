@@ -1,0 +1,21 @@
+<%- include('partials/styleOnlyHeader'); %> 
+
+
+<div class="UP-div">
+    <h1>Update Password</h1>
+    <form action="/password" method="post">
+	<input type="password" name="password" placeholder="Password">
+	<input type="password" name="passwordConfirm" placeholder="Confirm Password">
+	<button type="submit">Update Password</button>
+</form>
+        <% if (locals.errors && locals.errors.account) { %>
+            <% locals.errors.account.forEach(function(error) { %>
+                <p class="alert alert-primary" role="alert"><%= error %></p>
+            <% }) %>
+        <% } %>
+        
+        <button type="submit">Update</button>
+    </form>
+</div>
+
+<%- include('partials/footer'); %>

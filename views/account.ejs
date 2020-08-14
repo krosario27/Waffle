@@ -1,17 +1,25 @@
 <%- include('partials/styleOnlyHeader'); %> 
+
+
+
 <div class="reg-div">
     <h1>Update</h1>
-    <form action="/update" method="post">
-        <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">First Name</p>
-        <input id="txtFirst" name="firstName" type="text">
-        <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Last Name</p>
-        <input id="txtLast" name="lastName" type="text">
+    <form action="/account" method="post">
+        <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Display Name</p>
+        <% var userName = ("displayName" in  locals.user) ? locals.user.displayName : false; %>
+        <input id="txtFirst" name="displayName" type="text" value="<%= userName %>">
         <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">E-mail</p>
-        <input id="txtE-mail" type="email" name="email">
+        <% var email = ("displayName" in  locals.user) ? locals.user.email : false; %>
+        <input id="txtE-mail" type="email" name="email"  value="<%= email %>">
+
+        <% if (locals.errors && locals.errors.profile) { %>
+            <% locals.errors.profile.forEach(function(error) { %>
+                <p class="alert alert-primary" role="alert"><%= error %></p>
+            <% }) %>
+        <% } %>
         
         <button type="submit">Update</button>
     </form>
-
 </div>
 
 <%- include('partials/footer'); %>
