@@ -4,11 +4,13 @@
 <div class="UP-div">
     <h1>Update Password</h1>
     <form action="/password" method="post">
-	<input type="password" name="password" placeholder="Password">
+    <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">New Password</p>
+    <input type="password" name="password" placeholder="Password">
+    <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Confirm Password</p>
 	<input type="password" name="passwordConfirm" placeholder="Confirm Password">
 	<button type="submit">Update Password</button>
 </form>
-        <% if (locals.errors && locals.errors.account) { %>
+        <% if (locals.errors && locals.errors.) { %>
             <% locals.errors.account.forEach(function(error) { %>
                 <p class="alert alert-primary" role="alert"><%= error %></p>
             <% }) %>
