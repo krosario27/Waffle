@@ -80,7 +80,6 @@ class UserModel{
             email: request.body.email,
             password: request.body.password
         }
-        console.log(request.body);
         // Check is email is valid and password is over 6 chars
         var { valid, errors } = AraDTValidator.loginValid(user);
     
@@ -92,7 +91,6 @@ class UserModel{
             await AraDTDatabase.firebase.auth()
                 .signInWithEmailAndPassword(user.email, user.password)
                 .then((data) => {
-                    console.log(data);
                     // Promise to return token for the next stage
                     return data.user.getIdToken();
                 })
@@ -300,6 +298,41 @@ class UserModel{
         }
 
     };
+
+    
+    /**
+     * Gets all users from Firebase
+     * 
+     * @param {String}     currentUserId        Option to exclude user from returned list
+     * 
+     * @returns {Array}    array of all registered users
+     */
+    getUsers = async(currentUserId = false) => {
+        var users = [];
+        await AraDTDatabase.firebaseAdmin.auth().listUsers()
+            .then((data) => {
+                // Add users to the array
+                data.users.forEach((datum) => {
+                    //Exclude current user if passed to getUsers request
+                    if (!currentUserId ||
+                        datum.uid != currentUserId) {
+                            users.push({
+                                id: datum.uid,
+                                name: datum.displayName,
+                                image: datum.photoURL,
+                            });
+                    }
+                });
+                if (users.length == 0) {
+                    users = false;
+                }
+            })
+            .catch(function(error) {
+                //Do not throw error, just log the issue
+                console.log('Error fetching user data:', error);
+            });
+        return users;
+    }
 
 }
 module.exports = UserModel;

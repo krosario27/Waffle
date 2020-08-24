@@ -3,9 +3,11 @@
 
 
 <div class="reg-div">
-    <h1>Update</h1>
+    <div class="title">
+    <h1>Profile Update</h1>
+    </div>
     <form action="/account" method="post">
-        <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Display Name</p>
+        <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Name</p>
         <% var userName = ("displayName" in  locals.user) ? locals.user.displayName : false; %>
         <input id="txtFirst" name="displayName" type="text" value="<%= userName %>">
         <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">E-mail</p>
@@ -22,6 +24,12 @@
             <% }) %>
         <% } %>
 
+</div>
+
+<div class="reg-div-pass">
+    <div class="title">
+    <h2>Password Update</h2>
+    </div>
     <form action="/password" method="post">
         <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">New Password</p>
         <% var email = ("displayName" in  locals.user) ? locals.user.newPassword : false; %>
@@ -39,11 +47,7 @@
                 <p class="alert alert-primary" role="alert"><%= error %></p>
             <% }) %>
         <% } %>
-
-
-        
-    
-    </form>
 </div>
+
 
 <%- include('partials/footer'); %>
