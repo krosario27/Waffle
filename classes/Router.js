@@ -39,6 +39,7 @@ class Router{
      */
     addBaseRoutes() {
         AraDTApp.get('/', this.index);
+        AraDTApp.get('/register', this.register);   
     }
 
 
@@ -57,6 +58,9 @@ class Router{
         response.render('index');
     }
 
+    register(request, response, next) {
+        response.render('register')
+    }
     // Adds middleware to add HTTP Error to 404 requests
     handle404s() {
         AraDTApp.use(function(request, response, next) {

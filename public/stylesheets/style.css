@@ -1,8 +1,10 @@
 body {
+  background-color: #FA9200;
   padding: 0px;
   margin: 0px;
   overflow-y: hidden;
 }
+
 
 .main-div {
   background-color: #FFC107;
@@ -46,7 +48,6 @@ body {
   width: 40%;
   margin: 0px auto;
   margin-top: 55px;
-  padding: 20px;
   padding-left: 140px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;

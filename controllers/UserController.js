@@ -28,6 +28,10 @@ class UserController{
         AraDTApp.post('/password', this.updatePassword);
     }
 
+    register(request, response) {
+        response.render('register')
+    }
+
     /**
      * Assigns middleware to add Firebase.auth().currentUser to
      * UserModel, request.session, and response.locals variables
@@ -51,6 +55,7 @@ class UserController{
             next();
         });
     }
+
 
     /**
      * Asynchronous function that handles post form submission to '/login'
