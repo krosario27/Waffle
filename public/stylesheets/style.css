@@ -1,8 +1,6 @@
 body {
-  background-color: #FA9200;
   padding: 0px;
   margin: 0px;
-  font-family: 'Chewy', cursive;
   overflow-y: hidden;
 }
 
@@ -45,7 +43,6 @@ body {
 }
 
 .reg-div {
-  background-color:  #FFC107 ;
   width: 40%;
   margin: 0px auto;
   margin-top: 55px;
@@ -74,7 +71,6 @@ body {
 }
 
 .reg-div-pass {
-  background-color:  #FFC107 ;
   width: 40%;
   margin: 0px auto;
   padding: 20px;
