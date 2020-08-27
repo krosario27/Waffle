@@ -2,21 +2,21 @@
 
 
 <div class="main-div">
-    <h1>Waffle</h1>
-    <form action="/login" method="post">
-    <p1 id="main-email">EMAIL</p1>
-    <input type="email" id="txtEmail" name="email">
-    <p2>PASSWORD</p2>
-    <input id="txtPassword" type="password" name="password">
   
-    <button type="submit">Log in</button>
-    <p><a href="/register">Need an account?</a></p>
-    <% if (locals.errors && locals.errors.login) { %>
-      <% locals.errors.login.forEach(function(error) { %>
-        <p class="alert alert-primary" role="alert"><%= error %></p>
-      <% }) %>
-    <% } %>
-</form>
+  <form action="/login" method="post">
+      <p1 id="main-email">EMAIL</p1>
+      <input type="email" id="txtEmail" name="email">
+      <p2>PASSWORD</p2>
+      <input id="txtPassword" type="password" name="password">
+  
+      <button type="submit">Log in</button>
+      <p><a href="/register">Need an account?</a></p>
+      <% if (locals.errors && locals.errors.login) { %>
+        <% locals.errors.login.forEach(function(error) { %>
+          <p class="alert alert-primary" role="alert"><%= error %></p>
+        <% }) %>
+      <% } %>
+  </form>
 
 
 
