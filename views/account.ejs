@@ -2,82 +2,56 @@
 
 <div class="my-account-header">
     <h3 style="font-size: 35px;">My Account</h3>
-</div>
-
-<div class="container col-12">
-    <div class="row col-3 ml-7">
-        <div class="col-7">
-            <h1 style="font-size: 30px;">Personal Info</h1>
-
-        </div>
-    </div>
-</div>
-
-<div class="profile-pass">
-    <div class="container">
-        <div class="row">
-            <div class="col-8">
-            
-    
+</div>  
 
     
 
-   
-                <div class="reg-div">
-                    <div class="title">
-                    </div>
-                    <form action="/account" method="post">
-                        <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Name</p>
-                        <% var userName = ("displayName" in  locals.user) ? locals.user.displayName : false; %>
-                        <input id="txtFirst" name="displayName" type="text" value="<%= userName %>">
-                        <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">E-mail</p>
-                        <% var email = ("displayName" in  locals.user) ? locals.user.email : false; %>
-                        <input id="txtE-mail" type="email" name="email"  value="<%= email %>">
+<div class="profile-pass"> 
+    <div class="my-account-sidebar">
+        <h4>Personal Info</h4>  
+        <div class="reg-div">
+            <form action="/account" method="post">
+                <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Name</p>
+                <% var userName = ("displayName" in  locals.user) ? locals.user.displayName : false; %>
+                <input id="txtFirst" name="displayName" type="text" value="<%= userName %>">
+                <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">E-mail</p>
+                <% var email = ("displayName" in  locals.user) ? locals.user.email : false; %>
+                    <input id="txtE-mail" type="email" name="email"  value="<%= email %>">
 
-                        <button id="updateProfile" type="submit">Update Profile</button>
+                <button id="updateProfile" type="submit">Update Profile</button>
 
-                    </form>
+             </form>
 
-                        <% if (locals.errors && locals.errors.profile) { %>
-                            <% locals.errors.profile.forEach(function(error) { %>
-                                <p class="alert alert-primary" role="alert"><%= error %></p>
-                        <% }) %>
-                        <% } %>
-                </div>   
-            </div>
-            
-        </div>
-    </div>
-       
+                    <% if (locals.errors && locals.errors.profile) { %>
+                        <% locals.errors.profile.forEach(function(error) { %>
+                            <p class="alert alert-primary" role="alert"><%= error %></p>
+                    <% }) %>
+                    <% } %>
+    
+    </div>        
+        
 
+    
     <div class="reg-div-pass">
-        <div class="container">
-            <div class="row">
-                <div class="col-8">
-                            
-                            </div>
-                            <form action="/password" method="post">
-                                <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">New Password</p>
-                                <% var email = ("displayName" in  locals.user) ? locals.user.newPassword : false; %>
-                                <input type="password" name="password" placeholder="Password">
-                                <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Confirm Password</p>
-                                <% var email = ("displayName" in  locals.user) ? locals.user.confirmPassword : false; %>
-                                <input type="password" name="passwordConfirm" placeholder="Confirm Password">
+        <form action="/password" method="post">
+            <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">New Password</p>
+            <% var email = ("displayName" in  locals.user) ? locals.user.newPassword : false; %>
+            <input type="password" name="password" placeholder="Password">
+            <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Confirm Password</p>
+            <% var email = ("displayName" in  locals.user) ? locals.user.confirmPassword : false; %>
+            <input type="password" name="passwordConfirm" placeholder="Confirm Password">
 
-                            <button id="updatePassword" type="submit">Update Password</button>
+            <button id="updatePassword" type="submit">Update Password</button>
 
-                            </form>
+        </form>
 
-                                <% if (locals.errors && locals.errors.password) { %>
-                                    <% locals.errors.password.forEach(function(error) { %>
-                                        <p class="alert alert-primary" role="alert"><%= error %></p>
-                                    <% }) %>
-                                <% } %>
+        <% if (locals.errors && locals.errors.password) { %>
+            <% locals.errors.password.forEach(function(error) { %>
+                <p class="alert alert-primary" role="alert"><%= error %></p>
+                <% }) %>
+                <% } %>
     
-                </div>                        
-            </div>
-        </div>
-    </div>
+    </div>                        
 </div>
 
 
@@ -85,22 +59,29 @@
 
 
 <style>
+.my-account-sidebar {
+    background-color: #FAD155;
+}
 .my-account-header {
+    height: 200px;
     background-color: #FA9200;
-    padding-bottom: 40px;
+    padding-bottom: 60px;
     padding-top: 50px;
     padding-left: 750px;
     
 }
 
 
-.my-account-sidebar {  
+.my-account-sidebar {
     background-color: #FA9200;
+    width: 300px;
+    height: 690px;
 }
 
 .profile-pass {
     background-color: #FAD155;
     margin-top: -50px;
+    border-color: green;
 
     
 }
