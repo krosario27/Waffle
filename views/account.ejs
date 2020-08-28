@@ -3,32 +3,34 @@
 <div class="my-account-header">
     <h3 style="font-size: 35px;">My Account</h3>
 </div>  
-
-    
-
-<div class="profile-pass"> 
+<div class="profile-pass">
+   <!-- <img id="profile-pic" src="images/download.jpg" width="140px; " alt="error">-->
     <div class="my-account-sidebar">
         <h4>Personal Info</h4>  
         <div class="reg-div">
-            <form action="/account" method="post">
-                <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Name</p>
-                <% var userName = ("displayName" in  locals.user) ? locals.user.displayName : false; %>
-                <input id="txtFirst" name="displayName" type="text" value="<%= userName %>">
-                <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">E-mail</p>
-                <% var email = ("displayName" in  locals.user) ? locals.user.email : false; %>
-                    <input id="txtE-mail" type="email" name="email"  value="<%= email %>">
+            <div class="user-right">
+                <div class="user-left">       
+                    <img id="profile-pic" src="images/download.jpg" width="140px; " alt="error"> 
+                </div>
+                <form action="/account" method="post">
+                    <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Name</p>
+                    <% var userName = ("displayName" in  locals.user) ? locals.user.displayName : false; %>
+                    <input id="txtFirst" name="displayName" type="text" value="<%= userName %>">
+                    <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">E-mail</p>
+                    <% var email = ("displayName" in  locals.user) ? locals.user.email : false; %>
+                        <input id="txtE-mail" type="email" name="email"  value="<%= email %>">
 
-                <button id="updateProfile" type="submit">Update Profile</button>
+                    <button id="updateProfile" type="submit">Update Profile</button>
 
-             </form>
-
-                    <% if (locals.errors && locals.errors.profile) { %>
+                </form>
+            </div>
+                        <% if (locals.errors && locals.errors.profile) { %>
                         <% locals.errors.profile.forEach(function(error) { %>
                             <p class="alert alert-primary" role="alert"><%= error %></p>
                     <% }) %>
                     <% } %>
     
-    </div>        
+        </div>        
         
 
     
@@ -71,7 +73,6 @@
     
 }
 
-
 .my-account-sidebar {
     background-color: #FA9200;
     width: 300px;
@@ -83,7 +84,6 @@
     margin-top: -50px;
     border-color: green;
 
-    
 }
 
 

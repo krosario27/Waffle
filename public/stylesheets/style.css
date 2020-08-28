@@ -3,6 +3,7 @@ body {
   padding: 0px;
   margin: 0px;
   overflow-y: hidden;
+
 }
 
 
@@ -45,14 +46,27 @@ body {
 }
 
 .reg-div {
-  width: 40%; 
+  display: flex flexbox;
+  width: 100px; 
   margin: 0px auto;
   margin-top: 55px;
-  margin-left: 700px;
+  align-self: center;
+  margin-left: 530px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
+.user-left {
+  display: block;
+  padding-top: 20px;
+  padding-right: 30px;
+  width: 400px;
+}
+
+.user-right {
+  display: flex ;
+  width: 500px;
+}
 
 .reg-div input {
   display: block;
@@ -64,6 +78,8 @@ body {
   margin-top: -20px;
   margin-bottom: 20px;
 }
+
+
 
 .title {
   padding-left: 70px;
