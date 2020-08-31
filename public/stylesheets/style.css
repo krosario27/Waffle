@@ -38,6 +38,7 @@ body {
   margin-top: -30px;
   border-radius: 10px;
   padding: 10px;
+  outline: none;
 
 }
 
@@ -56,27 +57,16 @@ body {
   border-top-right-radius: 10px;
 }
 
-.user-left {
-  display: block;
-  padding-top: 20px;
-  padding-right: 30px;
-  width: 400px;
-}
-
-.user-right {
-  display: flex ;
-  width: 500px;
-}
-
 .reg-div input {
   display: block;
   background-color: #F0B916;
   width: 400px;
   border-radius: 4px;
-  border: 3px solid #8C8C8C;
+  border: 1px solid #8C8C8C;
   height: 40px;
   margin-top: -20px;
   margin-bottom: 20px;
+  outline: none;
 }
 
 
@@ -89,45 +79,63 @@ body {
 
 .reg-div-pass {
   width: 80%;
-  padding-top: 60px;
+  margin-top: 50px;
+  padding-top: 10px;
   margin-left: 700px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }   
 
 .reg-div-pass input {
+  transition: 0.3s;
   display: block;
   background-color: #F0B916;
   width: 400px;
   border-radius: 4px;
-  border: 3px solid #8C8C8C;
+  border: 1px solid #8C8C8C;
   height: 40px;
   margin-top: -20px;
   margin-bottom: 20px;
+  outline: none;
 }
+
+
+#updateProfile{
+  transition: 0.3s;
+  background-color: green;
+  font-size: medium;
+  color: white;
+  border-radius: 6px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 1px solid #FABF07;
+  outline: none;
+
+}
+
+#updateProfile:hover{
+  opacity: 0.8;
+}
+
+
 
 #updatePassword {
-  background: #FFC107;
-  display: block;
+  background: green;
   color: white;
-  width: 170px;
-  margin-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   border-radius: 10px;
-  border-color: #FFC107;
-  display: block;
   border: 1px solid #FABF07;
+  font-size: medium;
+  outline: none;
 }
 
-
-
-
-
-.alert-primary{
-  background-color: #FFC107;
-  color: #FE1212;
-  width: 540px;
-  border-radius: 50px;
-  border: none;
+#updatePassword:hover {
+  opacity: 0.8
 }
 
 

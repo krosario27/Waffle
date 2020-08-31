@@ -9,7 +9,8 @@
         <h4>Personal Info</h4>  
         <div class="reg-div">
             <div class="user-right">
-                <div class="user-left">       
+                <div class="user-left">
+
                     <img id="profile-pic" src="images/download.jpg" width="140px; " alt="error"> 
                 </div>
                 <form action="/account" method="post">
@@ -20,13 +21,14 @@
                     <% var email = ("displayName" in  locals.user) ? locals.user.email : false; %>
                         <input id="txtE-mail" type="email" name="email"  value="<%= email %>">
 
-                    <button id="updateProfile" type="submit">Update Profile</button>
+                    <button id="updateProfile" type="submit">Save</button>
 
                 </form>
             </div>
+                  
                         <% if (locals.errors && locals.errors.profile) { %>
                         <% locals.errors.profile.forEach(function(error) { %>
-                            <p class="alert alert-primary" role="alert"><%= error %></p>
+                            <p class="alert alert-primary-prof" role="alert"><%= error %></p>
                     <% }) %>
                     <% } %>
     
@@ -43,13 +45,13 @@
             <% var email = ("displayName" in  locals.user) ? locals.user.confirmPassword : false; %>
             <input type="password" name="passwordConfirm" placeholder="Confirm Password">
 
-            <button id="updatePassword" type="submit">Update Password</button>
+            <button id="updatePassword" type="submit">Save</button>
 
         </form>
 
         <% if (locals.errors && locals.errors.password) { %>
             <% locals.errors.password.forEach(function(error) { %>
-                <p class="alert alert-primary" role="alert"><%= error %></p>
+                <p class="alert alert-primary-pass" role="alert"><%= error %></p>
                 <% }) %>
                 <% } %>
     
@@ -66,9 +68,7 @@
 }
 .my-account-header {
     height: 200px;
-    background-color: #FA9200;
-    padding-bottom: 60px;
-    padding-top: 50px;
+    padding-top: 40px;
     padding-left: 750px;
     
 }
@@ -81,9 +81,47 @@
 
 .profile-pass {
     background-color: #FAD155;
-    margin-top: -50px;
+    margin-top: -80px;
     border-color: green;
 
+}
+
+.alert-primary-prof{
+  background-color: white;
+  color: black;
+  width: 300px;
+  border-color: white;
+  border-radius: 0px;
+  border-style: solid;
+  border-width: thick;
+  border-left-color: yellow;
+  margin-left: 200px;
+  margin-top: 16px;
+
+}
+
+.alert-primary-pass {
+  background-color: white;
+  color: black;
+  width: 700px;
+  border-radius: 0px;
+  border-style: solid;
+  border-width: thick;
+  border-left-color: yellow;
+  margin-left: -10px;
+  margin-top: 16px;
+}
+
+.user-left {
+  display: block;
+  padding-top: 20px;
+  padding-right: 30px;
+  width: 400px;
+}
+
+.user-right {
+  display: flex ;
+  width: 500px;
 }
 
 
