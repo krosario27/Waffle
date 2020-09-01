@@ -39,7 +39,8 @@ class Router{
      */
     addBaseRoutes() {
         AraDTApp.get('/', this.index);
-        AraDTApp.get('/register', this.register);   
+        AraDTApp.get('/register', this.register); 
+        AraDTapp.get('/channels', this.channels); 
     }
 
 

@@ -26,6 +26,11 @@ class UserController{
         AraDTApp.get('/account', this.getAccount);
         AraDTApp.post('/account', this.updateAccount);
         AraDTApp.post('/password', this.updatePassword);
+        AraDTApp.post('/channels', this.channels);
+    }
+
+    channels(request, response) {
+        response.render('channels')
     }
 
     register(request, response) {
