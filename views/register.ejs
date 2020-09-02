@@ -3,7 +3,7 @@
 
 <div class="reg-div">
  <div class="register">
-    <h1 style="font-family: 'Chewy', cursive; font-size: 50px; text-align-last: center; margin-right: 10px; font-weight: bold;">Sign Up</h1>
+    <h1 style="font-family: 'Chewy', cursive; font-size: 40px; text-align-last: center; margin-right: 10px; font-weight: bold;">Sign Up</h1>
     <form action="/register" method="post">
         <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">First Name</p>
         <input id="txtFirst">
@@ -26,10 +26,6 @@
         <% } %>
     </form>
  </div>
-
-
-
-
 </div>
 
 <%- include('partials/footer'); %>
@@ -55,8 +51,22 @@
     padding: 70px;
     padding-top: 30px;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-left: 40px;
+    margin-top: 30px;
     padding-bottom: 40px;
+}
+
+.register button{
+  background: black;
+  display: block;
+  color: white;
+  width: 400px;
+  margin-top: 40px;
+  border-radius: 10px;
+  padding: 8px;
+  outline: none;
+
+
 }
    
 </style>

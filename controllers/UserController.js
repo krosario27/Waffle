@@ -38,6 +38,7 @@ class UserController{
         response.render('register')
     }
 
+
     /**
      * Assigns middleware to add Firebase.auth().currentUser to
      * UserModel, request.session, and response.locals variables

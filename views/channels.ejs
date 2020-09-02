@@ -1,4 +1,4 @@
-<%- include('partials/styleOnlyHeader'); %> 
+<%- include('partials/footer/header'); %> 
 
 <% var users = locals.channels.users %>
 <form id="channel-create-form" action="/channels/add" method="post" enctype="multipart/form-data">
@@ -13,4 +13,4 @@
 	<button id="update" type="submit">Create</button>
 </form>
 
-<%- include('partials/footer'); %>
+<%- include('partials/footer/header'); %>

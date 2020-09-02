@@ -70,7 +70,6 @@ body {
 }
 
 
-
 .title {
   padding-left: 70px;
   width: 400px;
@@ -79,9 +78,9 @@ body {
 
 .reg-div-pass {
   width: 80%;
-  margin-top: 50px;
+  margin-top: 30px;
   padding-top: 10px;
-  margin-left: 770px;
+  margin-left: 698px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }   
@@ -120,7 +119,6 @@ body {
 }
 
 
-
 #updatePassword {
   background: green;
   color: white;
@@ -128,7 +126,7 @@ body {
   padding-right: 20px;
   padding-top: 5px;
   padding-bottom: 5px;
-  border-radius: 10px;
+  border-radius: 6px;
   border: 1px solid #FABF07;
   font-size: medium;
   outline: none;
