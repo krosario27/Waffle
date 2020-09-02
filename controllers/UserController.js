@@ -20,6 +20,7 @@ class UserController{
         this.setVariables();
 
         // Add all routing middleware for user endpoints
+        AraDTApp.get('/register', this.signup);
         AraDTApp.post('/register', this.register);
         AraDTApp.post('/login', this.login);
         AraDTApp.get('/logout', this.logout);
@@ -33,7 +34,7 @@ class UserController{
         response.render('channels')
     }
 
-    register(request, response) {
+    signup(request, response) {
         response.render('register')
     }
 
@@ -115,12 +116,12 @@ class UserController{
                 }).catch((error) => {
                     // Firebase registration has failed, so return Firebase errors
                     request.session.errors.register = [error.message];
-                    response.redirect('/');
+                    response.redirect('/register');
                 });
         } catch(errors) {
             // Form has failed validation, so return errors
             request.session.errors.register = errors;
-            response.redirect('/');
+            response.redirect('/register');
         }
     };
 

@@ -2,21 +2,18 @@
 
 
 <div class="reg-div">
-    <h1>Sign Up</h1>
+ <div class="register">
+    <h1 style="font-family: 'Chewy', cursive; font-size: 50px; text-align-last: center; margin-right: 10px; font-weight: bold;">Sign Up</h1>
     <form action="/register" method="post">
         <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">First Name</p>
-        <% var userName = ("displayName" in  locals.user) ? locals.user.displayName : false; %>
         <input id="txtFirst">
         <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Last Name</p>
-        <% var userName = ("displayName" in  locals.user) ? locals.user.displayName : false; %>
         <input id="txtLast">
         <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">E-mail</p>
         <input id="txtE-mail" type="email" name="email">
         <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Password</p>
-        <% var email = ("displayName" in  locals.user) ? locals.user.password : false; %>
         <input id="txtPass" type="password" name="password">
         <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Confirm Password</p>
-        <% var email = ("displayName" in  locals.user) ? locals.user.confirmPassword : false; %>
         <input id="txtconfirmPass" type="password" name="passwordConfirm">
         
         <button type="submit" id="signUp">Sign Up</button>
@@ -24,13 +21,42 @@
     
         <% if (locals.errors && locals.errors.register) { %>
             <% locals.errors.register.forEach(function(error) { %>
-                <p class="alert alert-primary" role="alert"><%= error %></p>
+                <p class="alert alert-primary-register" role="alert"><%= error %></p>
             <% }) %>
         <% } %>
     </form>
+ </div>
+
 
 
 
 </div>
 
 <%- include('partials/footer'); %>
+
+<style>
+
+.alert-primary-register{
+  background-color: white;
+  color: black;
+  width: 300px;
+  border-color: white;
+  border-radius: 0px;
+  border-style: solid;
+  border-width: thick;
+  border-left-color: yellow;
+  margin-left: 40px;
+  margin-top: 16px;
+  padding: 10px;
+}
+.register {
+    background-color: #FFC107;
+    width: 550px;
+    padding: 70px;
+    padding-top: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding-bottom: 40px;
+}
+   
+</style>

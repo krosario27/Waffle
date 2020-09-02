@@ -3,6 +3,7 @@
 <div class="my-account-header">
     <h3 style="font-size: 35px;">My Account</h3>
 </div>  
+
 <div class="profile-pass">
    <!-- <img id="profile-pic" src="images/download.jpg" width="140px; " alt="error">-->
     <div class="my-account-sidebar">
@@ -10,8 +11,10 @@
         <div class="reg-div">
             <div class="user-right">
                 <div class="user-left">
-
-                    <img id="profile-pic" src="images/download.jpg" width="140px; " alt="error"> 
+                    <img id="profile-pic" src="images/download.jpg" width="140px; " alt="error">
+          <div class="avatar">
+              <input type="file" name="avatar"> 
+            </div>
                 </div>
                 <form action="/account" method="post">
                     <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Name</p>
@@ -63,6 +66,14 @@
 
 
 <style>
+
+.avatar input{
+    background-color: #FAD155;
+    margin-top: 10px;
+    width: 100px;
+    outline: none;
+    border-color: #FAD155;
+}
 .my-account-sidebar {
     background-color: #FAD155;
 }
@@ -104,7 +115,7 @@
 .alert-primary-pass {
   background-color: white;
   color: black;
-  width: 650px;
+  width: 650 px;
   border-radius: 0px;
   border-style: solid;
   border-width: thick;
