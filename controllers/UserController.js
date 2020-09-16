@@ -180,7 +180,8 @@ class UserController{
     };
 
     getAccount(request, response){
-        
+
+        console.log(request.session.user);
         if (!request.session.token) {
             response.redirect('/');
         }

@@ -11,20 +11,21 @@
         <div class="reg-div">
             <div class="user-right">
                 <div class="user-left">
-                    <img id="profile-pic" src="images/download.jpg" width="140px; " alt="error">
+                    <% var avatar = ("photoURL" in  locals.user) ? locals.user.photoURL : false; %>
+                    <img id="profile-pic"  src="<%= avatar %>" width="140px; " alt="error">
           <div class="avatar">
-              <input type="file" name="avatar"> 
             </div>
                 </div>
-                <form action="/account" method="post">
+                <form action="/account" method="post" enctype="multipart/form-data">
                     <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Display Name</p>
                     <% var userName = ("displayName" in  locals.user) ? locals.user.displayName : false; %>
                     <input id="txtFirst" name="displayName" type="text" value="<%= userName %>">
                     <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">E-mail</p>
                     <% var email = ("displayName" in  locals.user) ? locals.user.email : false; %>
                         <input id="txtE-mail" type="email" name="email"  value="<%= email %>">
+                        <input id="c-profile" type="file" name="avatar" style="display: initial; margin-top: -10px;"> 
 
-                    <button id="updateProfile" type="submit">Save</button>
+                    <button id="updateProfile" type="submit" style="margin-left: 65px;">Save</button>
 
                 </form>
             </div>
@@ -66,6 +67,14 @@
 
 
 <style>
+
+#c-profile {
+    background-color: #FAD155;
+    border: none;
+    margin-top: 60px;
+    width: 100px;
+    margin-left: -170px;
+}
 
 .avatar input{
     background-color: #FAD155;
