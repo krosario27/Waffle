@@ -1,37 +1,56 @@
 <%- include('partials/styleOnlyHeader'); %> 
 
+<div class="channels-main">
+	<div class="channels-header" style="display: flex; height: 130px;">
+		<h3 style="font-family: 'Chewy', cursive; font-size: 50px; margin-right: 60px; font-weight: bolder;">Waffle</h3>
+		<div class="profile-header" style=" display: flex;  margin-left: 1124px;">
+			<div class="prof-pic">
+				<img src="images/download.jpg" width="80px;" alt="error" style="border-radius: 50%;">
+			</div>
+			<div class="display-name" style="margin-top: 25px;">
+			<h2 style="font-size: 28px;">Display Name</h2>
+			</div>
+		</div>
 
-<div class="channels-header" style="display: flex; height: 130px;">
-	<h3 style="font-family: 'Chewy', cursive; font-size: 50px; margin-right: 60px; font-weight: bolder;">Waffle</h3>
-	<div class="profile-header" style=" display: flex;  margin-left: 1124px;">
-		<div class="prof-pic">
-			<img src="images/download.jpg" width="80px;" alt="error" style="border-radius: 50%;">
-		</div>
-		<div class="display-name" style="margin-top: 25px;">
-		<h2 style="font-size: 28px;">Display Name</h2>
-		</div>
-	</div>
+	 <div class="channel-title">
+		<h1 style="font-size: 30px;">Create Channel</h1>
+	 </div>
 	
-	<div class="channel-title">
-		<h1>Create Channel</h1>
-	</div>
-</div> 
+	</div> 
 
-<div class="channels-sidebar">
-		<h1 style="font-size: 35px;">Channels</h1>
-		<div class="inside-sidebar">
-			<p1>channel 1</p1>
-			<p2>channel 2</p2>
-		</div>
+
+	<div class="channels-sidebar">
+			<h1 style="font-size: 35px;">Channels</h1>
+			<div class="inside-sidebar">
+				<p1>channel 1</p1>
+				<p2>channel 2</p2>
+			</div>
+
+		<div class="create-channel">
+				<% var users = locals.channels.users %>
+			<form id="channel-create-form" action="/channels/add" method="post" enctype="multipart/form-data">
+				<input type="text" class="form-control" name="name" placeholder="Display Name" value="">
+				<input type="file" class="custom-file-input" name="avatar" id="avatar-upload">
+				<% if (users) { %>
+					<% users.forEach(function(user) { %>
+						<input class="user-check-input" id="user<%= user.id %>" type="checkbox" name="users" value="<%= user.id %>">
+						<p><%= user.name %></p>
+					<% }) %>
+				<% } %>
+				<button id="update" type="submit">Create</button>
+			</form>
+		<div>
+
+	</div>
+</div>
+	
 
 </div>
 
 
 
-<%- include('partials/styleOnlyHeader'); %>
-
-
 <style>
+
 .channels-header{
 	width: auto;
 	background-color: #F9A912;
@@ -42,9 +61,8 @@
 .channels-sidebar {
 	background-color: #F9A912;
 	padding-top: 20px;
-	width: 270px;
+	width: 250px;
 	height: 692px;
-	margin-top: -8px;
 }
 
 .img {
@@ -53,7 +71,12 @@
 
 .channel-title {
 	background-color: #FFC107;
+	margin-bottom: -140px;
 	margin-top: 100px;
+	height: 50px;
+	margin-left: -1355px;
+	margin-right: -30px;
+	width: 1700px;
 }
 
 
