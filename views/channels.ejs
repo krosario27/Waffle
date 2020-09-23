@@ -17,40 +17,54 @@
 	 </div>
 	
 	</div> 
-
-
+	<div style="display: flex;">
 	<div class="channels-sidebar">
-			<h1 style="font-size: 35px;">Channels</h1>
-			<div class="inside-sidebar">
-				<p1>channel 1</p1>
-				<p2>channel 2</p2>
-			</div>
+		<h1 style="font-size: 35px;">Channels</h1>
+		<div class="inside-sidebar">
+			<p1>channel 1</p1>
+			<p2>channel 2</p2>
+		</div>
 
+     </div>
+	
 		<div class="create-channel">
-				<% var users = locals.channels.users %>
-			<form id="channel-create-form" action="/channels/add" method="post" enctype="multipart/form-data">
-				<input type="text" class="form-control" name="name" placeholder="Display Name" value="">
-				<input type="file" class="custom-file-input" name="avatar" id="avatar-upload">
-				<% if (users) { %>
-					<% users.forEach(function(user) { %>
-						<input class="user-check-input" id="user<%= user.id %>" type="checkbox" name="users" value="<%= user.id %>">
-						<p><%= user.name %></p>
-					<% }) %>
-				<% } %>
-				<button id="update" type="submit">Create</button>
-			</form>
-		<div>
-
+			<h1 style="font-size: 20px;">Channel Name</h1>
+					<% var users = locals.channels.users %>
+				<form id="channel-create-form" action="/channels/add" method="post" enctype="multipart/form-data">
+					
+					<input type="text" class="form-control" name="name" value="">
+					
+						<input type="file" class="custom-file-input" name="avatar" id="avatar-upload">
+					<% if (users) { %>
+						<% users.forEach(function(user) { %>
+							<div style="display: flex;">
+							<input class="user-check-input" id="user<%= user.id %>" type="checkbox"name="users" value="<%= user.id %>">
+							<p><%= user.name %></p> </div>
+						<% }) %>
+					<% } %>
+				
+					<button id="update"  type="submit">Create Channel</button>
+				</form>
+		    </div>
+		</div>		
 	</div>
 </div>
 	
 
-</div>
 
 
 
 <style>
 
+
+.create-channel{
+	height: 460px;
+	padding: 50px;
+	padding-top: 60px;
+	background-color: yellow;
+	margin-left: 470px;
+	margin-top: 140px;
+}
 .channels-header{
 	width: auto;
 	background-color: #F9A912;
