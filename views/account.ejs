@@ -1,150 +1,50 @@
-<%- include('partials/styleOnlyHeader'); %> 
+<%- include('partials/styleOnlyHeader'); %>
 
-<div class="my-account-header">
-    <h3 style="font-size: 35px;">My Account</h3>
-</div>  
 
-<div class="profile-pass">
-   <!-- <img id="profile-pic" src="images/download.jpg" width="140px; " alt="error">-->
-    <div class="my-account-sidebar">
-        <h4>Personal Info</h4>
-        <div class="reg-div">
-            <div class="user-right">
-                <div class="user-left">
-                    <% var avatar = ("photoURL" in  locals.user) ? locals.user.photoURL : false; %>
-                    <img id="profile-pic"  src="<%= avatar %>" width="140px; " alt="error">
-          <div class="avatar">
-            </div>
-                </div>
-                <form action="/account" method="post" enctype="multipart/form-data">
-                    <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Display Name</p>
-                    <% var userName = ("displayName" in  locals.user) ? locals.user.displayName : false; %>
-                    <input id="txtFirst" name="displayName" type="text" value="<%= userName %>">
-                    <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">E-mail</p>
-                    <% var email = ("displayName" in  locals.user) ? locals.user.email : false; %>
-                        <input id="txtE-mail" type="email" name="email"  value="<%= email %>">
-                        <input id="c-profile" type="file" name="avatar" style="display: initial; margin-top: -10px;"> 
+<div class="d-flex justify-content-between p-3 nav">
+    <a href="/channels" class="text-body h2">Waffle</a>
+    <div>
+      <a href="/account" class="text-body h2 mr-3">Account</a>
+      <a href="/channels" class="text-body h2">Channels</a>
+    </div>
+</div>
 
-                    <button id="updateProfile" type="submit" style="margin-left: 65px;">Save</button>
+<div class="d-flex h-100 justify-content-center pt-5">
+    <div class="d-flex bgso p-4">
+        <form class="d-flex flex-column w-50" action="/account" method="post" enctype="multipart/form-data">
+            <% if (locals.errors && locals.errors.profile) { %>
+                <% locals.errors.profile.forEach(function(error) { %>
+                    <p class="alert alert-danger" role="alert"><%= error %></p>
+                <% }) %>
+            <% } %>
+            <h3 class="mt-3">Display Name</h3>
+            <% var userName = ("displayName" in  locals.user) ? locals.user.displayName : false; %>
+            <input id="txtFirst" name="displayName" type="text" value="<%= userName %>">
+            <h3 class="mt-3">E-mail</h3>
+            <% var email = ("displayName" in  locals.user) ? locals.user.email : false; %>
+            <input type="email" name="email"  value="<%= email %>">
+            <h3 class="mt-3">Profile Picture</h3>
+            <input type="file" name="avatar">
+            <button id="updateProfile" type="submit" class="mt-4">Save</button>
+        </form>
 
-                </form>
-            </div>
-                  
-                        <% if (locals.errors && locals.errors.profile) { %>
-                        <% locals.errors.profile.forEach(function(error) { %>
-                            <p class="alert alert-primary-prof" role="alert"><%= error %></p>
-                    <% }) %>
-                    <% } %>
-    
-        </div>        
-        
-
-    
-    <div class="reg-div-pass">
-        <form action="/password" method="post">
-            <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">New Password</p>
+        <form class="d-flex flex-column w-50 ml-2" action="/password" method="post">
+            <% if (locals.errors && locals.errors.password) { %>
+                <% locals.errors.password.forEach(function(error) { %>
+                    <p class="alert alert-danger" role="alert"><%= error %></p>
+                <% }) %>
+            <% } %>
+            <h3 class="mt-3">New Password</h3>
             <% var email = ("displayName" in  locals.user) ? locals.user.newPassword : false; %>
             <input type="password" name="password" placeholder="Password">
-            <p style="font-size: 18px;font-family: 'Roboto', sans-serif;">Confirm Password</p>
+            <h3 class="mt-3">Confrm Password</h3>
             <% var email = ("displayName" in  locals.user) ? locals.user.confirmPassword : false; %>
             <input type="password" name="passwordConfirm" placeholder="Confirm Password">
 
-            <button id="updatePassword" type="submit">Save</button>
+            <button id="updatePassword" type="submit" class="mt-4">Save</button>
 
         </form>
-
-        <% if (locals.errors && locals.errors.password) { %>
-            <% locals.errors.password.forEach(function(error) { %>
-                <p class="alert alert-primary-pass" role="alert"><%= error %></p>
-                <% }) %>
-                <% } %>
-    
-    </div>                        
+    </div>
 </div>
 
-
 <%- include('partials/footer'); %>
-
-
-<style>
-
-#c-profile {
-    background-color: #FAD155;
-    border: none;
-    margin-top: 60px;
-    width: 100px;
-    margin-left: -170px;
-}
-
-.avatar input{
-    background-color: #FAD155;
-    margin-top: 10px;
-    width: 100px;
-    outline: none;
-    border-color: #FAD155;
-}
-.my-account-sidebar {
-    background-color: #FAD155;
-}
-.my-account-header {
-    height: 200px;
-    padding-top: 40px;
-    padding-left: 750px;
-    
-}
-
-.my-account-sidebar {
-    background-color: #FA9200;
-    width: 300px;
-    height: 690px;
-}
-
-.profile-pass {
-    background-color: #FAD155;
-    margin-top: -80px;
-    border-color: green;
-
-}
-
-.alert-primary-prof{
-  background-color: white;
-  color: black;
-  width: 300px;
-  border-color: white;
-  border-radius: 0px;
-  border-style: solid;
-  border-width: thick;
-  border-left-color: yellow;
-  margin-left: 200px;
-  margin-top: 5px;
-  padding: 10px;
-
-}
-
-.alert-primary-pass {
-  background-color: white;
-  color: black;
-  width: 650px;
-  border-radius: 0px;
-  border-style: solid;
-  border-width: thick;
-  border-left-color: yellow;
-  margin-left: -10px;
-  margin-top: 10px;
-  padding: 10px;
-}
-
-.user-left {
-  display: block;
-  padding-top: 20px;
-  padding-right: 30px;
-  width: 400px;
-}
-
-.user-right {
-  display: flex ;
-  width: 500px;
-}
-
-
-</style>
