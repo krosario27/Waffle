@@ -16,14 +16,45 @@
 		<h1 style="font-size: 30px;">Create Channel</h1>
 	 </div>
 	
+
+
+	 
 	</div> 
 	<div style="display: flex;">
 	<div class="channels-sidebar">
-		<h1 style="font-size: 35px;">Channels</h1>
-		<div class="inside-sidebar">
-			<p1>channel 1</p1>
-			<p2>channel 2</p2>
+		<% 
+		var channels = locals.channels
+		var owned = ("owned" in  channels) ? channels.owned : false
+		var subscribed = ("subscribed" in  channels) ? channels.subscribed : false
+		%>
+		<div id="owned-channels" class="user-channels">
+			<h4>Your Channels</h4>
+		<% if (owned) { %>
+			<ul>
+			<% owned.forEach(function(channel) { %>
+				<li>
+					<img src="<%= channel.image %>" alt="<%= channel.name %>">
+					<a href="/channel/<%= channel.id %>/"><%= channel.name %></a>
+					<a href="/channels/delete/<%= channel.id %>/"><i class="fa fa-trash" aria-hidden="true"></i></a>
+				</li>
+			<% }) %>
+			</ul>
+		<% }  %>
 		</div>
+		<div id="subscribed-channels" >
+			<h4>Subscribed Channels</h4>
+		<% if (subscribed) { %>
+			<ul>
+			<% subscribed.forEach(function(channel) { %>
+				<li>
+					<img src="<%= channel.image %>" alt="<%= channel.name %>">
+					<a href="/channel/<%= channel.slug %>/"><%= channel.name %></a>
+				</li>
+			<% }) %>
+			</ul>
+		<% }  %>
+		</div>
+		
 
      </div>
 	
@@ -37,9 +68,9 @@
 						<input type="file" class="custom-file-input" name="avatar" id="avatar-upload">
 					<% if (users) { %>
 						<% users.forEach(function(user) { %>
-							<div style="display: flex;">
+							<div style="display: flex; margin-left: 50px; margin-top: -20px;">
 							<input class="user-check-input" id="user<%= user.id %>" type="checkbox"name="users" value="<%= user.id %>">
-							<p><%= user.name %></p> </div>
+							<p style="margin-left: 60px;"><%= user.name %></p> </div>
 						<% }) %>
 					<% } %>
 				
@@ -56,14 +87,31 @@
 
 <style>
 
+#update:hover{
+	opacity: 0.97;
+	color: #494545;
+}
 
+#update{
+	transition: 0.3s;
+	background-color: #1F36C6;
+	color: white;
+	border: 1px solid yellow;
+	font-size: medium;
+	padding: 8px;
+	border-radius: 6px;
+	margin-left: 170px;
+	outline: none;
+}
 .create-channel{
-	height: 460px;
+	width: 400px;
+	height: 300px;
 	padding: 50px;
 	padding-top: 60px;
 	background-color: yellow;
 	margin-left: 470px;
 	margin-top: 140px;
+	border-radius: 9px;
 }
 .channels-header{
 	width: auto;
